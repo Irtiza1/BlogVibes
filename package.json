@@ -1,0 +1,22 @@
+{
+  "name": "blogging_app",
+  "version": "1.0.0",
+  "description": "A Blogging App Designed using NodeJS &amp; ExpressJS along with MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
