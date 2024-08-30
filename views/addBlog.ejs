@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Add New Blog Page</title>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div class="container mt-4">
+        <form action="/blog" method="post" enctype="multipart/form-data">
+            <!-- Title Field -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp" required>
+                <div id="titleHelp" class="form-text">Enter the title of your blog post.</div>
+            </div>
+
+            <!-- Body Field -->
+            <div class="mb-3">
+                <label for="body" class="form-label">Body</label>
+                <textarea class="form-control" name="body" id="body" rows="5" required></textarea>
+            </div>
+
+            <!-- Cover Image Field -->
+            <div class="mb-3">
+                <label for="coverImage" class="form-label">Cover Image</label>
+                <input type="file" class="form-control" id="coverImage" name="coverImage" aria-describedby="coverImageHelp" required>
+                <div id="coverImageHelp" class="form-text">Upload a cover image for your blog post.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('./partials/script') %>
+</body>
+</html>

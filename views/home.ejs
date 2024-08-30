@@ -2,10 +2,31 @@
 <html lang="en">
 <head>
     <%- include('./partials/head') %>
-    <title>Blogging App</title>
+    <title>Homepage</title>
 </head>
 <body>
     <%- include('./partials/nav.ejs') %>
+    
+    <div class="container mt-3">
+        <% if (blogs && blogs.length > 0) { %>
+            <div class="row">
+                <% blogs.forEach(blog => { %>
+                    <div class="col-md-4">
+                        <div class="card mb-4" style="width: 100%;">
+                            <img src="<%= blog.coverImageURL %>" class="card-img-top" alt="<%= blog.title %> cover image">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= blog.title %></h5>
+                                <a href="/blog/<%= blog._id %>" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No blogs available at the moment.</p>
+        <% } %>
+    </div>
+
     <%- include('./partials/script') %>
 </body>
 </html>
