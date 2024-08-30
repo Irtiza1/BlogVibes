@@ -18,7 +18,8 @@
     </div>
     
     <div class="container mt-4 d-flex align-items-center">
-        <img src="<%= blog.createdBy.profileImageURL %>" alt="<%= blog.createdBy.fullName %>'s profile image" width="50px" class="rounded-circle me-3"> 
+        <img src="<%= blog.createdBy.profileImageURL || '/public/uploads/default.jpeg' %>" alt="<%= blog.createdBy.fullName %>'s profile image" width="50px" class="rounded-circle me-3"> 
+
         <span><%= blog.createdBy.fullName %></span>
     </div>
 
@@ -36,7 +37,7 @@
             <% comments.forEach(comment => { %>
                 <div>
                     <% if (comment.createdBy) { %>
-                        <img src="<%= comment.createdBy.profileImageURL %>" width="40px" class="rounded-circle me-3"> 
+                        <img src="<%= comment.createdBy.profileImageURL || '/home/cheeta/Downloads/Blogging_App/public/uploads/default.jpeg' %>" width="40px" class="rounded-circle me-3">
                         <%= comment.createdBy.fullName %>: 
                     <% } else { %>
                         <span>Unknown User:</span>

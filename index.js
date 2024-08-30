@@ -17,7 +17,6 @@ app.use(express.urlencoded({extended: false})) //use when we need to handle form
 app.use(cookieParser())
 app.use(checkForAuthenticationCookie("token"))
 app.use(express.static(path.resolve("./public")))
-const session = require('express-session');
 
 app.get('/',async (req,res)=>{
     const allBlogs= await Blog.find({}) 
@@ -26,7 +25,7 @@ app.get('/',async (req,res)=>{
         blogs: allBlogs,
     }) 
 })
-
+app.use('/public', express.static('public'));
 app.use('/user', userRoute)
 app.use('/blog', addBlog)
 app.listen(PORT, ()=>console.log(`Server running on PORT: ${PORT}`))
